@@ -1,0 +1,25 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {"url": "Meteorite_Landings.json"},
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "field": "mass",
+      "type": "quantitative",
+      "title": "mass",
+      "scale": {"domain": [0,10000]}
+    },
+    "y": {
+      "aggregate": "count",
+      "type": "quantitative"
+    },
+    "color": {
+      "field": "recclass",
+      "type": "nominal",
+      "scale": {
+        "range": ["#e7ba52", "#c7c7c7", "#aec7e8", "#1f77b4", "#9467bd"]
+      },
+      "title": "Weather type"
+    }
+  }
+}
