@@ -1,0 +1,78 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": { "url": "data/metor_filtered_final.json" },
+  "background": "transparent",
+  "config": {
+      "axis": {"labelColor": "white", "titleColor": "white", "titleFontSize": 20,"labelFontSize": 15},
+      "title": {"color": "white"},
+      "legend": {"labelColor": "white", "titleColor":"white",
+      "labelFontSize": 14, 
+      "titleFontSize": 20},
+      "style": {
+        "cell": {
+          "stroke": "transparent"
+        }
+      },
+      "concat": {"spacing": 0}
+    },
+    "width": 400,
+    "height": 200,
+    "transform": [
+      {"calculate": "(datum['year']-1970.5)*31556926000", "as": "eyear"},
+        {"calculate": "floor(log(datum['mass (kg)'])/log(10))", "as": "lmass"},
+        {"calculate": "datum.lmass == '0' ? '1kg - 10kg' : datum.lmass == '1' ? '10kg - 100kg' :datum.lmass == '2' ? '100kg - 1,000kg' :datum.lmass == '3' ? '1,000kg - 10,000kg' : '10,000kg+'", "as": "weightname"}
+    ,{"calculate": "datum.recclass == 'Iron, IVB' ? 'Magmatic Iron Meteorite Groups' :datum.recclass == 'Iron, IIIE-an' ? 'Magmatic Iron Meteorite Groups' :datum.recclass == 'Iron, IIIF' ? 'Magmatic Iron Meteorite Groups' :datum.recclass == 'Iron, IVA' ? 'Magmatic Iron Meteorite Groups' :datum.recclass == 'Iron, IVA-an' ? 'Magmatic Iron Meteorite Groups' :datum.recclass == 'Iron, IIIAB' ? 'Magmatic Iron Meteorite Groups' :datum.recclass == 'Iron, IIIAB-an' ? 'Magmatic Iron Meteorite Groups' :datum.recclass == 'Iron, IIIAB?' ? 'Magmatic Iron Meteorite Groups' :datum.recclass == 'Iron, IIIE' ? 'Magmatic Iron Meteorite Groups' :datum.recclass == 'Iron, IIF' ? 'Magmatic Iron Meteorite Groups' :datum.recclass == 'Iron, IIG' ? 'Magmatic Iron Meteorite Groups' :datum.recclass == 'Iron, IIC' ? 'Magmatic Iron Meteorite Groups' :datum.recclass == 'Iron, IID' ? 'Magmatic Iron Meteorite Groups' :datum.recclass == 'Iron, IID-an' ? 'Magmatic Iron Meteorite Groups' :datum.recclass == 'Iron, IC' ? 'Magmatic Iron Meteorite Groups' :datum.recclass == 'Iron, IIAB' ? 'Magmatic Iron Meteorite Groups' :datum.recclass == 'Iron, IIE-an' ? 'Non-magmatic or Primitive Iron Meteorite Groups' :datum.recclass == 'Iron, IAB-ung' ? 'Non-magmatic or Primitive Iron Meteorite Groups' :datum.recclass == 'Iron, IAB?' ? 'Non-magmatic or Primitive Iron Meteorite Groups' :datum.recclass == 'Iron, IIE' ? 'Non-magmatic or Primitive Iron Meteorite Groups' :datum.recclass == 'Iron, IAB-sLM' ? 'Non-magmatic or Primitive Iron Meteorite Groups' :datum.recclass == 'Iron, IAB-sLL' ? 'Non-magmatic or Primitive Iron Meteorite Groups' :datum.recclass == 'Iron, IAB-sHL' ? 'Non-magmatic or Primitive Iron Meteorite Groups' :datum.recclass == 'Iron, IAB complex' ? 'Non-magmatic or Primitive Iron Meteorite Groups' :datum.recclass == 'Iron, IAB-MG' ? 'Non-magmatic or Primitive Iron Meteorite Groups' :datum.recclass == 'Iron, IAB-an' ? 'Non-magmatic or Primitive Iron Meteorite Groups' :datum.recclass == 'Iron, IAB-sHH' ? 'Non-magmatic or Primitive Iron Meteorite Groups' :datum.recclass == 'EL6' ? 'Enstatite Chondrite' :datum.recclass == 'EL6/7' ? 'Enstatite Chondrite' :datum.recclass == 'EH7' ? 'Enstatite Chondrite' :datum.recclass == 'EH7-an' ? 'Enstatite Chondrite' :datum.recclass == 'EL3' ? 'Enstatite Chondrite' :datum.recclass == 'EL4' ? 'Enstatite Chondrite' :datum.recclass == 'EH3' ? 'Enstatite Chondrite' :datum.recclass == 'EH4' ? 'Enstatite Chondrite' :datum.recclass == 'EH5' ? 'Enstatite Chondrite' :datum.recclass == 'Mesosiderite-B4' ? 'Mesosiderite Group' :datum.recclass == 'Mesosiderite-C' ? 'Mesosiderite Group' :datum.recclass == 'Mesosiderite-C2' ? 'Mesosiderite Group' :datum.recclass == 'Mesosiderite-an' ? 'Mesosiderite Group' :datum.recclass == 'Mesosiderite-A4' ? 'Mesosiderite Group' :datum.recclass == 'Mesosiderite-B' ? 'Mesosiderite Group' :datum.recclass == 'Mesosiderite-B1' ? 'Mesosiderite Group' :datum.recclass == 'Mesosiderite-A2' ? 'Mesosiderite Group' :datum.recclass == 'Mesosiderite-A3' ? 'Mesosiderite Group' :datum.recclass == 'Mesosiderite' ? 'Mesosiderite Group' :datum.recclass == 'Mesosiderite-A' ? 'Mesosiderite Group' :datum.recclass == 'Mesosiderite-A1' ? 'Mesosiderite Group' :datum.recclass == 'Pallasite' ? 'Pallasites' :datum.recclass == 'Pallasite, PMG' ? 'Pallasites' :datum.recclass == 'Pallasite, PMG-an' ? 'Pallasites' :datum.recclass == 'Pallasite, ungrouped' ? 'Pallasites' :datum.recclass == 'Achondrite-ung' ? 'Unknown/Other' :datum.recclass == 'Iron' ? 'Unknown/Other' :datum.recclass == 'Enst achon-ung' ? 'Unknown/Other' :datum.recclass == 'Iron, ungrouped' ? 'Unknown/Other' :datum.recclass == 'Stone-uncl' ? 'Unknown/Other' :datum.recclass == 'Lunar (anorth)' ? 'Lunar' :datum.recclass == 'Lunar (basalt)' ? 'Lunar' :datum.recclass == 'Lunar (feldsp. breccia)' ? 'Lunar' :datum.recclass == 'Acapulcoite' ? 'Unknown/Other' :datum.recclass == 'Winonaite' ? 'Unknown/Other' :datum.recclass == 'Eucrite-mmict' ? 'Asteroidal Achondrites' :datum.recclass == 'Eucrite-pmict' ? 'Asteroidal Achondrites' :datum.recclass == 'Howardite' ? 'Asteroidal Achondrites' :datum.recclass == 'Eucrite' ? 'Asteroidal Achondrites' :datum.recclass == 'Eucrite-br' ? 'Asteroidal Achondrites' :datum.recclass == 'Eucrite-cm' ? 'Asteroidal Achondrites' :datum.recclass == 'Brachinite' ? 'Asteroidal Achondrites' :datum.recclass == 'Diogenite' ? 'Asteroidal Achondrites' :datum.recclass == 'Diogenite-olivine' ? 'Asteroidal Achondrites' :datum.recclass == 'Ureilite-an' ? 'Asteroidal Achondrites' :datum.recclass == 'Ureilite-pmict' ? 'Asteroidal Achondrites' :datum.recclass == 'Angrite' ? 'Asteroidal Achondrites' :datum.recclass == 'Aubrite' ? 'Asteroidal Achondrites' :datum.recclass == 'Aubrite-an' ? 'Asteroidal Achondrites' :datum.recclass == 'Ureilite' ? 'Asteroidal Achondrites' :datum.recclass == 'Martian (OPX)' ? 'Martian' :datum.recclass == 'Martian (nakhlite)' ? 'Martian' :datum.recclass == 'Martian (shergottite)' ? 'Martian' :datum.recclass == 'C2-ung' ? 'Carbonaceous Chondrite' :datum.recclass == 'C3-ung' ? 'Carbonaceous Chondrite' :datum.recclass == 'C4-ung' ? 'Carbonaceous Chondrite' :datum.recclass == 'CBa' ? 'Carbonaceous Chondrite' :datum.recclass == 'CBb' ? 'Carbonaceous Chondrite' :datum.recclass == 'CH/CBb' ? 'Carbonaceous Chondrite' :datum.recclass == 'CH3' ? 'Carbonaceous Chondrite' :datum.recclass == 'CK4' ? 'Carbonaceous Chondrite' :datum.recclass == 'CK4-an' ? 'Carbonaceous Chondrite' :datum.recclass == 'CK5' ? 'Carbonaceous Chondrite' :datum.recclass == 'CM1/2' ? 'Carbonaceous Chondrite' :datum.recclass == 'CM2' ? 'Carbonaceous Chondrite' :datum.recclass == 'CO3' ? 'Carbonaceous Chondrite' :datum.recclass == 'CO3.0' ? 'Carbonaceous Chondrite' :datum.recclass == 'CO3.2' ? 'Carbonaceous Chondrite' :datum.recclass == 'CO3.3' ? 'Carbonaceous Chondrite' :datum.recclass == 'CO3.5' ? 'Carbonaceous Chondrite' :datum.recclass == 'CO3.6' ? 'Carbonaceous Chondrite' :datum.recclass == 'CO3.8' ? 'Carbonaceous Chondrite' :datum.recclass == 'CR' ? 'Carbonaceous Chondrite' :datum.recclass == 'CR-an' ? 'Carbonaceous Chondrite' :datum.recclass == 'CR2' ? 'Carbonaceous Chondrite' :datum.recclass == 'CV3' ? 'Carbonaceous Chondrite' : 'Ordinary Chondrite' ", "as": "simple_class"}
+      
+      ],
+    "title": {
+        "text": "Landings By Weight (kg)",
+        "fontSize": 20,
+        "offset": 0
+    },
+    "encoding": {
+        "x": {
+        "field": "lmass",
+        "title": "",
+      "axis": {"labels": false,"domain": false, "grid": false, "ticks": false}},
+        "y": { "aggregate": "count","title": "", "scale": {"type": "log"},"axis": {"labels": false,"domain": false, "grid": false, "ticks": false}},
+        "color": {
+        "field": "lmass",
+        "scale": {
+            "domain": ["0", "1", "2", "3", "4"],
+            "range": ["#fdbe85", "#fd8d3c", "#e6550d", "#bd0026", "#7f0000"]
+        },
+        "legend": {
+          "labelExpr": "datum.label == '0' ? '1 - 10' : datum.label == '1' ? '10 - 100' :datum.label == '2' ? '100 - 1,000' :datum.label == '3' ? '1,000 - 10,000' : '10,000+'",
+          "title": "",
+          "orient": "bottom",
+          "padding": 10,
+          "fillColor": "transparent"
+      }        },
+        "tooltip": [
+          {"field": "weightname", "type": "nominal", "title": "Weight Range" },
+          {"aggregate": "count", "type": "quantitative", "title": "Landings recorded" }
+        ]
+    },
+    "layer": [{
+      "mark": "bar"
+    }, {
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "middle",
+        "dy": -10,
+        "fill": "white",
+        "fontSize": 20
+      },
+      "encoding": {
+        "text": {"aggregate": "count", "type": "quantitative"}
+      }
+    }]
+}
+
+
+
+
+
+
+

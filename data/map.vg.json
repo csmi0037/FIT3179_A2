@@ -1,0 +1,107 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": "container",
+  "background": "transparent",
+  "title": {
+    "text": "Global Meteorite Landings (1kg+)",
+    "color": "white",
+    "fontSize": 40
+  },
+  "data": {
+    "url": "data/metor_filtered_final.json"
+  },
+  "projection": {
+    "type": "equalEarth"
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/ne.json",
+        "format": {
+          "type": "topojson",
+          "feature": "ne_110m_wgs84_bounding_box"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#072989"
+      }
+    },
+    {
+      "data": {
+        "url": "data/ne.json",
+        "format": {
+          "type": "topojson",
+          "feature": "ne_110m_admin_0_countries"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#3B7A7F",
+        "stroke": "#3B7A7F"
+      }
+    },
+    {
+      "data": {
+        "url": "data/ne.json",
+        "format": {
+          "type": "topojson",
+          "feature": "ne_110m_graticules_30"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": null,
+        "stroke": "#246EAF"
+      }
+    },
+    {
+      "mark": {
+        "type": "circle",
+        "fill": "red",
+        "stroke": "yellow"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "reclong",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "reclat",
+          "type": "quantitative"
+        },
+        "size": {
+          "field": "mass (kg)",
+          "title": "Meteorite Weight",
+          "type": "quantitative",
+          "scale": {
+            "range": [
+              10,
+              1000
+            ],
+            "type": "linear"
+          },
+          "legend": {
+            "labelExpr": "datum.label == '0' ? '1kg' :datum.label+'kg'",
+            "orient": "bottom",
+            "padding": 10,
+            "fillColor": "#021939",
+            "labelColor": "white",
+            "labelFontSize": 12,
+            "titleColor": "white",
+            "titleFontSize": 20,
+            "offset": 40
+          }
+        }
+      }
+    }
+  ],
+  "config": {
+    "style": {
+      "cell": {
+        "stroke": "transparent"
+      }
+    }
+  }
+}

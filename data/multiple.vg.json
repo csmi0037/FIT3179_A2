@@ -1,0 +1,160 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": { "url": "data/metor_filtered_final.json" },
+    "transform": [
+        {"calculate": "(datum['year']-1970.5)*31556926000", "as": "eyear"}
+    ],
+    "background": "transparent",
+    "config": {
+        "axis": {"labelColor": "white", "titleColor": "white", "titleFontSize": 20,"labelFontSize": 12},
+        "title": {"color": "white"},
+        "legend": {"labelColor": "white", "titleColor":"white",
+        "labelFontSize": 12,
+        "titleFontSize": 20},
+        "style": {
+          "cell": {
+            "stroke": "transparent"
+          }
+        },
+        "concat": {"spacing": 50}
+      },
+    "vconcat": [
+        {
+            "width": "container",
+            "height": "container",
+            "title": {
+                "text": "Global Meteorite Landings (1kg+)",
+                "fontSize": 40
+            },
+            "projection": {"type": "equalEarth"},
+            "layer": [
+                {
+                "data": {
+                    "url": "data/ne.json",
+                    "format": {
+                    "type": "topojson",
+                    "feature": "ne_110m_wgs84_bounding_box"
+                    }
+                },
+                "mark": {"type": "geoshape", "fill": "#181c2c"}
+                },
+                {
+                "data": {
+                    "url": "data/ne.json",
+                    "format": {
+                    "type": "topojson",
+                    "feature": "ne_110m_admin_0_countries"
+                    }
+                },
+                "mark": { "type": "geoshape", "fill": "#343332", "stroke": "#343332"}
+                },
+                {
+                "data": {
+                    "url": "data/ne.json",
+                    "format": {"type": "topojson", "feature": "ne_110m_graticules_30"}
+                },
+                "mark": {"type": "geoshape", "fill": null, "stroke": "greu"}
+                },
+                {
+                "transform": [{"filter": {"param": "time_brush"}}],
+                "mark": {"type":"circle", "fill": "#4eb1e8", "stroke": "yellow"},
+                "encoding": {
+                    "longitude": {
+                    "field": "reclong",
+                    "type": "quantitative"
+                    },
+                    "latitude": {
+                    "field": "reclat",
+                    "type": "quantitative"
+                    },
+                    "size": {
+                    "field": "mass (kg)",
+                    "title": "Meteorite Weight",
+                    "type": "quantitative",
+                    "scale": {"range":[10, 5000],"type": "linear"},
+                    "legend": {
+                        "labelExpr": "datum.label == '0' ? '1kg' :datum.label+'kg'",
+                        "padding": 10,
+                        "fillColor": "#151a2d",
+                        "orient": "right"
+                    }
+                    },
+                    "tooltip": [
+                      {"field": "name", "type": "nominal", "title": "Name" },
+                      {"field": "year", "type": "quantitative", "title": "Year" },
+                      {"field": "recclass", "type": "nominal", "title": "Classification" },
+                      {"field": "mass (kg)", "type": "quantitative", "title": "Weight (kg)" }
+                    ]
+                }
+                }
+            ]
+          },
+          {
+            "width": "container",
+            "height": 80,
+            "mark": {"type": "area", "color": "#4eb1e8"},
+            "title": {"text":"Use this line chart to filter out the data based on time","fontSize":30,
+            "offset": 60},
+            "params": [
+              {
+                "name": "time_brush",
+                "select": {"type": "interval", "encodings": ["x"]}
+              }
+            ],
+            "encoding": {
+              "x": {
+                "field": "eyear",
+                "timeUnit": "year",
+                "axis": {"title": "Year","grid": false}
+              },
+              "y": {
+                "aggregate": "count",
+                "axis": {"tickCount": 3},
+                "title": "Meteorites"
+              }
+            }
+          },
+          {
+            "width": "container",
+            "height": "container",
+            "transform": [
+                {"calculate": "floor(log(datum['mass (kg)'])/log(10))", "as": "lmass"},
+                {"calculate": "datum.lmass == '0' ? '1kg - 10kg' : datum.lmass == '1' ? '10kg - 100kg' :datum.lmass == '2' ? '100kg - 1,000kg' :datum.lmass == '3' ? '1,000kg - 10,000kg' : '10,000kg+'", "as": "weightname"}
+            ],
+            "title": {
+                "text": "Yearly Meteorite Landings By Weight",
+                "fontSize": 40,
+                "offset": 60
+            },
+            "mark": "bar",
+            "encoding": {
+                "x": {
+                "field": "eyear", 
+                "timeUnit": "year",
+                "title": "Year",
+                "scale": {"domain": {"param": "time_brush"}}
+                },
+                "y": {"aggregate": "count","title": "Landings Recorded"},
+                "color": {
+                "field": "lmass",
+                "scale": {
+                    "domain": ["0", "1", "2", "3", "4"],
+                    "range": ["#fdbe85", "#fd8d3c", "#e6550d", "#bd0026", "#7f0000"]
+                },
+                "legend": {
+                    "labelExpr": "datum.label == '0' ? '1kg - 10kg' : datum.label == '1' ? '10kg - 100kg' :datum.label == '2' ? '100kg - 1,000kg' :datum.label == '3' ? '1,000kg - 10,000kg' : '10,000kg+'",
+                    "title": "Meteorite Weight",
+                    "orient": "bottom",
+                    "padding": 10,
+                    "fillColor": "#0c64ac"
+                }
+                },
+                "tooltip": [
+                  {"field": "year", "type": "quantitative", "title": "Year" },
+                  {"field": "weightname", "type": "nominal", "title": "Weight Range" },
+                  {"aggregate": "count", "type": "quantitative", "title": "Landings recorded" }
+                ]
+            }
+          }
+    ]
+  }
