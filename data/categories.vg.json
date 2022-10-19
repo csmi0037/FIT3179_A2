@@ -72,7 +72,7 @@
             "offset": 20
         },
         "layer": [{
-            "mark": {"type": "arc", "tooltip": true, "outerRadius": 250}
+            "mark": {"type": "arc", "tooltip": true, "outerRadius": 220}
           }, {
             "mark": {"type": "text", "radius": 300,"fontSize": 18, "fontWeight": "bold"},
             "encoding": {
