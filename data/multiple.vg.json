@@ -24,7 +24,8 @@
             "height": "container",
             "title": {
                 "text": "Global Meteorite Landings (1kg+)",
-                "fontSize": 40
+                "fontSize": 40,
+                "offset": -30
             },
             "projection": {"type": "equalEarth"},
             "layer": [

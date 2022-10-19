@@ -15,7 +15,7 @@
       },
       "concat": {"spacing": 0}
     },
-    "width": 400,
+    "width": 350,
     "height": 200,
     "transform": [
       {"calculate": "(datum['year']-1970.5)*31556926000", "as": "eyear"},
@@ -46,7 +46,8 @@
           "title": "",
           "orient": "bottom",
           "padding": 10,
-          "fillColor": "transparent"
+          "fillColor": "transparent",
+          "labelFontSize":10
       }        },
         "tooltip": [
           {"field": "weightname", "type": "nominal", "title": "Weight Range" },

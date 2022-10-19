@@ -6,72 +6,76 @@
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
     <style>
         @font-face { font-family: nasa; src: url('nasalization.ttf'); }
+        html{
+            width: 1920px;
+        }
         body{
             z-index: 1;
             background-image: url("images/galaxy.jpg");
             background-size: 100%;
             background-repeat: repeat-y;
         }
-        h1{
+        .headertext{
             position: absolute;
-            top: 4%;
-            right: 25%;
-            width: 50%;
+            top: 50px;
+            left: 480px;
+            width: 960px;
             color: white;
             z-index: 5;
             font-family: nasa;
             text-align: center;
+            font-size: 70px;
         }
         .contentBackground{
             z-index: 6;
             position: absolute;
             background-color: rgba(21,26,45,255);
-            width: 50%;
-            height: 110%;
-            left: 25%;
-            top: 210%;
+            width: 960px;
+            height: 1200px;
+            left: 480px;
+            top: 2050px;
         }
         .contentBackground2{
             z-index: 6;
             position: absolute;
             background-color: rgba(21,26,45,255);
-            width: 85%;
-            height: 98%;
-            left: 7.5%;
-            top: 39%;
+            width: 1720px;
+            height: 1000px;
+            left: 100px;
+            top: 350px;
         }
         .contenttext{
             z-index: 7;
             position: absolute;
             background-color: #0c64ac;
-            width: 15%;
-            height: 77%;
-            left: 43%;
-            top: 53%;
+            width: 370px;
+            height: 800px;
+            left: 750px;
+            top: 470px;
         }
         .contenttext2{
             z-index: 7;
             position: absolute;
             background-color: #0c64ac;
-            width: 20%;
-            height: 81%;
-            left: 2.5%;
-            top: 190%;
+            width: 400px;
+            height: 1080px;
+            left: 35px;
+            top: 1900px;
         }
         .contenttext3{
             z-index: 7;
             position: absolute;
             background-color: #0c64ac;
-            width: 20%;
-            height: 70%;
-            right: 2.5%;
-            top: 245%;
+            width: 400px;
+            height: 920px;
+            left: 1485px;
+            top: 2300px;
         }
         .wrapper{
             position: absolute;
             z-index: 5;
-            width: 99%;
-            height: 4200px;
+            width: 1920px;
+            height: 3270px;
             overflow: hidden;
         }
         #metor{
@@ -80,29 +84,28 @@
         .pure-g img{
             z-index : 2;
             position: absolute;
-            width: 100%;
-            height: 34vw;
-            top: 146%;
+            width: 1920px;
+            height: 650px;
+            top: 1439px;
         }
         .pure-u-1-3 div{
             z-index : 6;
-            position: relative;
-            width: 110%;
+            position: absolute;
+            width: 695px;
             height: 31vw;
-            left: -12%;
-            top: -2.6%;
+            left: 555px;
+            top: 1450.5px;
         }
         .pure-u-1-1 div{
             z-index : 6;
-            position: relative;
-            width: 80%;
-            height: 30vw;
-            left: 8%;
-            top: -15%;
+            position: absolute;
+            height: 450px;
+            left: 100px;
+            top: 380px;
         }
         .header{
             z-index: 2;
-            width: 100%;
+            width: 1920px;
         }
         .space{
             position: relative;
@@ -115,7 +118,7 @@
             margin: 2.5%;
             background-color: #5A5A5A;
             color: white;
-            font-size: larger;
+            font-size: large;
             font-weight: 500;
         }
         .buttonselect2{
@@ -146,7 +149,7 @@
         <img id="metor" src="images/metor.gif">
     </div>
     <img class="header" src="images/banner.png">
-    <h1  style="font-size:4vw">METEORITE LANDINGS ON EARTH (1KG+)</h1>
+    <h1  class="headertext">METEORITE LANDINGS ON EARTH (1KG+)</h1>
     <div class="contentBackground"></div>
     <div class="contentBackground2"></div>
     <div class="contenttext2">

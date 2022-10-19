@@ -6,7 +6,7 @@
         "text": "Classifying Meteorites",
         "fontSize": 50,
         "anchor": "middle",
-        "offset": 100
+        "offset": 40
     },
     "transform": [
         {"calculate": "datum.recclass == 'Iron, IVB' ? 'Magmatic Iron Meteorite Groups' :datum.recclass == 'Iron, IIIE-an' ? 'Magmatic Iron Meteorite Groups' :datum.recclass == 'Iron, IIIF' ? 'Magmatic Iron Meteorite Groups' :datum.recclass == 'Iron, IVA' ? 'Magmatic Iron Meteorite Groups' :datum.recclass == 'Iron, IVA-an' ? 'Magmatic Iron Meteorite Groups' :datum.recclass == 'Iron, IIIAB' ? 'Magmatic Iron Meteorite Groups' :datum.recclass == 'Iron, IIIAB-an' ? 'Magmatic Iron Meteorite Groups' :datum.recclass == 'Iron, IIIAB?' ? 'Magmatic Iron Meteorite Groups' :datum.recclass == 'Iron, IIIE' ? 'Magmatic Iron Meteorite Groups' :datum.recclass == 'Iron, IIF' ? 'Magmatic Iron Meteorite Groups' :datum.recclass == 'Iron, IIG' ? 'Magmatic Iron Meteorite Groups' :datum.recclass == 'Iron, IIC' ? 'Magmatic Iron Meteorite Groups' :datum.recclass == 'Iron, IID' ? 'Magmatic Iron Meteorite Groups' :datum.recclass == 'Iron, IID-an' ? 'Magmatic Iron Meteorite Groups' :datum.recclass == 'Iron, IC' ? 'Magmatic Iron Meteorite Groups' :datum.recclass == 'Iron, IIAB' ? 'Magmatic Iron Meteorite Groups' :datum.recclass == 'Iron, IIE-an' ? 'Non-magmatic or Primitive Iron Meteorite Groups' :datum.recclass == 'Iron, IAB-ung' ? 'Non-magmatic or Primitive Iron Meteorite Groups' :datum.recclass == 'Iron, IAB?' ? 'Non-magmatic or Primitive Iron Meteorite Groups' :datum.recclass == 'Iron, IIE' ? 'Non-magmatic or Primitive Iron Meteorite Groups' :datum.recclass == 'Iron, IAB-sLM' ? 'Non-magmatic or Primitive Iron Meteorite Groups' :datum.recclass == 'Iron, IAB-sLL' ? 'Non-magmatic or Primitive Iron Meteorite Groups' :datum.recclass == 'Iron, IAB-sHL' ? 'Non-magmatic or Primitive Iron Meteorite Groups' :datum.recclass == 'Iron, IAB complex' ? 'Non-magmatic or Primitive Iron Meteorite Groups' :datum.recclass == 'Iron, IAB-MG' ? 'Non-magmatic or Primitive Iron Meteorite Groups' :datum.recclass == 'Iron, IAB-an' ? 'Non-magmatic or Primitive Iron Meteorite Groups' :datum.recclass == 'Iron, IAB-sHH' ? 'Non-magmatic or Primitive Iron Meteorite Groups' :datum.recclass == 'EL6' ? 'Enstatite Chondrite' :datum.recclass == 'EL6/7' ? 'Enstatite Chondrite' :datum.recclass == 'EH7' ? 'Enstatite Chondrite' :datum.recclass == 'EH7-an' ? 'Enstatite Chondrite' :datum.recclass == 'EL3' ? 'Enstatite Chondrite' :datum.recclass == 'EL4' ? 'Enstatite Chondrite' :datum.recclass == 'EH3' ? 'Enstatite Chondrite' :datum.recclass == 'EH4' ? 'Enstatite Chondrite' :datum.recclass == 'EH5' ? 'Enstatite Chondrite' :datum.recclass == 'Mesosiderite-B4' ? 'Mesosiderite Group' :datum.recclass == 'Mesosiderite-C' ? 'Mesosiderite Group' :datum.recclass == 'Mesosiderite-C2' ? 'Mesosiderite Group' :datum.recclass == 'Mesosiderite-an' ? 'Mesosiderite Group' :datum.recclass == 'Mesosiderite-A4' ? 'Mesosiderite Group' :datum.recclass == 'Mesosiderite-B' ? 'Mesosiderite Group' :datum.recclass == 'Mesosiderite-B1' ? 'Mesosiderite Group' :datum.recclass == 'Mesosiderite-A2' ? 'Mesosiderite Group' :datum.recclass == 'Mesosiderite-A3' ? 'Mesosiderite Group' :datum.recclass == 'Mesosiderite' ? 'Mesosiderite Group' :datum.recclass == 'Mesosiderite-A' ? 'Mesosiderite Group' :datum.recclass == 'Mesosiderite-A1' ? 'Mesosiderite Group' :datum.recclass == 'Pallasite' ? 'Pallasites' :datum.recclass == 'Pallasite, PMG' ? 'Pallasites' :datum.recclass == 'Pallasite, PMG-an' ? 'Pallasites' :datum.recclass == 'Pallasite, ungrouped' ? 'Pallasites' :datum.recclass == 'Achondrite-ung' ? 'Unknown/Other' :datum.recclass == 'Iron' ? 'Unknown/Other' :datum.recclass == 'Enst achon-ung' ? 'Unknown/Other' :datum.recclass == 'Iron, ungrouped' ? 'Unknown/Other' :datum.recclass == 'Stone-uncl' ? 'Unknown/Other' :datum.recclass == 'Lunar (anorth)' ? 'Lunar' :datum.recclass == 'Lunar (basalt)' ? 'Lunar' :datum.recclass == 'Lunar (feldsp. breccia)' ? 'Lunar' :datum.recclass == 'Acapulcoite' ? 'Unknown/Other' :datum.recclass == 'Winonaite' ? 'Unknown/Other' :datum.recclass == 'Eucrite-mmict' ? 'Asteroidal Achondrites' :datum.recclass == 'Eucrite-pmict' ? 'Asteroidal Achondrites' :datum.recclass == 'Howardite' ? 'Asteroidal Achondrites' :datum.recclass == 'Eucrite' ? 'Asteroidal Achondrites' :datum.recclass == 'Eucrite-br' ? 'Asteroidal Achondrites' :datum.recclass == 'Eucrite-cm' ? 'Asteroidal Achondrites' :datum.recclass == 'Brachinite' ? 'Asteroidal Achondrites' :datum.recclass == 'Diogenite' ? 'Asteroidal Achondrites' :datum.recclass == 'Diogenite-olivine' ? 'Asteroidal Achondrites' :datum.recclass == 'Ureilite-an' ? 'Asteroidal Achondrites' :datum.recclass == 'Ureilite-pmict' ? 'Asteroidal Achondrites' :datum.recclass == 'Angrite' ? 'Asteroidal Achondrites' :datum.recclass == 'Aubrite' ? 'Asteroidal Achondrites' :datum.recclass == 'Aubrite-an' ? 'Asteroidal Achondrites' :datum.recclass == 'Ureilite' ? 'Asteroidal Achondrites' :datum.recclass == 'Martian (OPX)' ? 'Martian' :datum.recclass == 'Martian (nakhlite)' ? 'Martian' :datum.recclass == 'Martian (shergottite)' ? 'Martian' :datum.recclass == 'C2-ung' ? 'Carbonaceous Chondrite' :datum.recclass == 'C3-ung' ? 'Carbonaceous Chondrite' :datum.recclass == 'C4-ung' ? 'Carbonaceous Chondrite' :datum.recclass == 'CBa' ? 'Carbonaceous Chondrite' :datum.recclass == 'CBb' ? 'Carbonaceous Chondrite' :datum.recclass == 'CH/CBb' ? 'Carbonaceous Chondrite' :datum.recclass == 'CH3' ? 'Carbonaceous Chondrite' :datum.recclass == 'CK4' ? 'Carbonaceous Chondrite' :datum.recclass == 'CK4-an' ? 'Carbonaceous Chondrite' :datum.recclass == 'CK5' ? 'Carbonaceous Chondrite' :datum.recclass == 'CM1/2' ? 'Carbonaceous Chondrite' :datum.recclass == 'CM2' ? 'Carbonaceous Chondrite' :datum.recclass == 'CO3' ? 'Carbonaceous Chondrite' :datum.recclass == 'CO3.0' ? 'Carbonaceous Chondrite' :datum.recclass == 'CO3.2' ? 'Carbonaceous Chondrite' :datum.recclass == 'CO3.3' ? 'Carbonaceous Chondrite' :datum.recclass == 'CO3.5' ? 'Carbonaceous Chondrite' :datum.recclass == 'CO3.6' ? 'Carbonaceous Chondrite' :datum.recclass == 'CO3.8' ? 'Carbonaceous Chondrite' :datum.recclass == 'CR' ? 'Carbonaceous Chondrite' :datum.recclass == 'CR-an' ? 'Carbonaceous Chondrite' :datum.recclass == 'CR2' ? 'Carbonaceous Chondrite' :datum.recclass == 'CV3' ? 'Carbonaceous Chondrite' : 'Ordinary Chondrite' ", "as": "simple_class"}
@@ -21,12 +21,12 @@
             "stroke": "transparent"
           }
         },
-        "concat": {"spacing": 430}
+        "concat": {"spacing": 450}
       },
       "background": "transparent",
     "hconcat": [{
-        "width": "container",
-        "height": "container",
+        "width": 500,
+        "height": 500,
         "title": {
             "text": "Meteorite Landings By Group",
             "fontSize": 30,
@@ -57,6 +57,8 @@
         }
       },
       {
+        "width": 500,
+        "height": 500,
         "transform": [{
             "filter": {"param": "category"}},
             {
@@ -67,18 +69,16 @@
           "title": {
             "text": "Meteorite Landings By Classification",
             "fontSize": 30,
-            "offset": 60
+            "offset": 20
         },
         "layer": [{
-            "mark": {"type": "arc", "tooltip": true, "outerRadius": 280}
+            "mark": {"type": "arc", "tooltip": true, "outerRadius": 250}
           }, {
-            "mark": {"type": "text", "radius": 370,"fontSize": 20, "fontWeight": "bold"},
+            "mark": {"type": "text", "radius": 300,"fontSize": 18, "fontWeight": "bold"},
             "encoding": {
               "text": {"field": "recclass", "type": "nominal"}
             }
           }],
-        "width": "container",
-        "height": "container",
         "encoding": {
         "theta": {"aggregate": "count", "stack": "normalize"},
         "color": {
